@@ -1,11 +1,11 @@
 #include"head.h"
 int flag=1,k=0;
-int getRand(int down,int up)//Éú³ÉËæ»úÊı 
+int getRand(int down,int up)//ç”Ÿæˆéšæœºæ•° 
 {
 	if (flag==1)
 	{
 		flag=0;
-		srand((unsigned)time(NULL));//ÖÖ×Ó 
+		srand((unsigned)time(NULL));//ç§å­ 
     }
     return random(down,up);
 }
@@ -31,7 +31,7 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 		string paras1,paras2,equ,ans;
 		for (int j=0;j<number;j++)
 		{
-			if (flag1=='y') //ÔÊĞí³Ë³ı 
+			if (flag1=='y') //å…è®¸ä¹˜é™¤ 
 			{
 				tmp=getRand(1,4);
 				switch (tmp)
@@ -57,12 +57,12 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 					       break;
 				}
 			}
-			if (flag2=='y') //ÔÊĞí·ÖÊı 
+			if (flag2=='y') //å…è®¸åˆ†æ•° 
 			{
 				tmp=getRand(1,3);
 				switch (tmp)
 				{
-					case 1: //ÕûÊıºÍÕûÊı 
+					case 1: //æ•´æ•°å’Œæ•´æ•° 
 					{
     				    stringstream tmps1,tmps2;
         				para1=getRand(low,high);
@@ -73,7 +73,7 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 			        	tmps2>>paras2;
 		  				break;
 				    }
-					case 2: //ÕûÊıºÍÕæ·ÖÊı 
+					case 2: //æ•´æ•°å’ŒçœŸåˆ†æ•° 
 					{
 						stringstream tmps;
 						para1=getRand(low,high);
@@ -83,7 +83,7 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 						paras2="("+frac2.numerators+"\\"+frac2.denominators+")";
 						break;
 					}
-					case 3: //·ÖÊıºÍ·ÖÊı 
+					case 3: //åˆ†æ•°å’Œåˆ†æ•° 
 					{
 						Fraction frac1=simplifyFrac(getFrac(low,high));
 						Fraction frac2=simplifyFrac(getFrac(low,high));
@@ -103,7 +103,7 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 				tmps4<<para2;
 				tmps4>>paras2;
 			}
-			if (flag3=='y') //ÔÊĞíÀ¨ºÅ
+			if (flag3=='y') //å…è®¸æ‹¬å·
 			{
 				tmp=getRand(1,4);
 				switch (tmp)
@@ -192,12 +192,12 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 				cin>>ans;
 				if (ans==result)
 				{
-					cout<<"ÕıÈ·"<<endl;
+					cout<<"æ­£ç¡®"<<endl;
 					right++;
 				}
 				else
 				{
-					cout<<"´íÎó£¬ÕıÈ·´ğ°¸Îª£º"<<result<<endl;
+					cout<<"é”™è¯¯ï¼Œæ­£ç¡®ç­”æ¡ˆä¸ºï¼š"<<result<<endl;
 					wrong++;
 				}
 				i++;
@@ -205,5 +205,5 @@ void getAndCalculate(int num,int low,int high,char flag1,char flag2,char flag3)
 		}
 	}
 	cout<<"********************************************************************"<<endl;
-	cout<<"×ö¶ÔÁË"<<right<<"µÀÌâ£¬×ö´íÁË"<<wrong<<"µÀÌâ";
+	cout<<"åšå¯¹äº†"<<right<<"é“é¢˜ï¼Œåšé”™äº†"<<wrong<<"é“é¢˜";
 }
