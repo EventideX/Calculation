@@ -1,19 +1,19 @@
-/*************************************************************
-ÎÄ¼şÃû£ºgenerate.cpp
-×÷Õß£º¸Ç¼ÎĞù ÈÕÆÚ£º2016/02/16
-ÃèÊö: Éú³É±í´ïÊ½ 
-Ö÷Òª¹¦ÄÜ°üÀ¨£ºÉú³ÉËæ»úÊı¡¢Éú³É±í´ïÊ½ 
+ï»¿/*************************************************************
+æ–‡ä»¶åï¼šgenerate.cpp
+ä½œè€…ï¼šç›–å˜‰è½© æ—¥æœŸï¼š2016/02/16
+æè¿°: ç”Ÿæˆè¡¨è¾¾å¼ 
+ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šç”Ÿæˆéšæœºæ•°ã€ç”Ÿæˆè¡¨è¾¾å¼ 
 *************************************************************/
 
 #include"head.h"
 
 int flag=1,k=0;
-int getRand(int down,int up)//Éú³ÉËæ»úÊı 
+int getRand(int down,int up)//ç”Ÿæˆéšæœºæ•° 
 {
 	if (flag==1)
 	{
 		flag=0;
-		srand((unsigned)time(NULL));//ÖÖ×Ó 
+		srand((unsigned)time(NULL));//ç§å­ 
     }
     return random(down,up);
 }
@@ -28,7 +28,7 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 		string paras1,paras2,equ;
 		for (int j=0;j<number-1;j++)
 		{
-			if (flag1=='y') //ÔÊĞí³Ë³ı 
+			if (flag1=='y') //å…è®¸ä¹˜é™¤ 
 			{
 				tmp=getRand(1,4);
 				switch (tmp)
@@ -54,12 +54,12 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 					       break;
 				}
 			}
-			if (flag2=='y') //ÔÊĞí·ÖÊı 
+			if (flag2=='y') //å…è®¸åˆ†æ•° 
 			{
 				tmp=getRand(1,3);
 				switch (tmp)
 				{
-					case 1: //ÕûÊıºÍÕûÊı 
+					case 1: //æ•´æ•°å’Œæ•´æ•° 
 					{
     				    stringstream tmps1,tmps2;
      	    			tmps1<<getRand(low,high);
@@ -68,7 +68,7 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 			        	tmps2>>paras2;
 		  				break;
 				    }
-					case 2: //ÕûÊıºÍÕæ·ÖÊı 
+					case 2: //æ•´æ•°å’ŒçœŸåˆ†æ•° 
 					{
 						stringstream tmps;
 						tmps<<getRand(low,high);
@@ -77,7 +77,7 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 						paras2=frac2.transString(frac2);
 						break;
 					}
-					case 3: //·ÖÊıºÍ·ÖÊı 
+					case 3: //åˆ†æ•°å’Œåˆ†æ•° 
 					{
 						Fraction frac1=frac1.simplify(frac1.getFrac(low,high));
 						Fraction frac2=frac2.simplify(frac2.getFrac(low,high));
@@ -95,12 +95,12 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 				tmps4<<getRand(low,high);
 				tmps4>>paras2;
 			}
-			if (flag3=='y') //ÔÊĞíÀ¨ºÅ
+			if (flag3=='y') //å…è®¸æ‹¬å·
 			{
 				tmp=getRand(1,4);
 				switch (tmp)
 				{
-					case 1: //ÎŞÀ¨ºÅ 
+					case 1: //æ— æ‹¬å· 
 					{
 						if (flag4==1)
 						{
@@ -120,7 +120,7 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 						else equ=paras1+sign+equ;
 					    break;
 					}
-					case 3: //ÓĞÀ¨ºÅ 
+					case 3: //æœ‰æ‹¬å· 
 					{
 						if (flag4==1)
 						{
@@ -170,7 +170,7 @@ void getAndCalculate(int opt,int num,int low,int high,int flag0,char flag1,char 
 			}
 		}
 		string result=countEquation(equ);
-		if ((ifOnly(equ,equation))&&(result!="non_comformance")) //ÅĞ¶Ï±í´ïÊ½ÊÇ·ñÖØ¸´ÒÔ¼°ÊÇ·ñ³ıÁã 
+		if ((ifOnly(equ,equation))&&(result!="non_comformance")) //åˆ¤æ–­è¡¨è¾¾å¼æ˜¯å¦é‡å¤ä»¥åŠæ˜¯å¦é™¤é›¶ 
 		{
 			equation.push_back(equ);
             checkAndOutput(equ,i,opt,result);

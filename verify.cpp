@@ -1,14 +1,14 @@
-/*************************************************************
-ÎÄ¼şÃû£ºverify.cpp
-×÷Õß£º¸Ç¼ÎĞù ÈÕÆÚ£º2016/02/16
-ÃèÊö: ¼ìÑéºÍÊä³ö½á¹û 
-Ö÷Òª¹¦ÄÜ°üÀ¨£ºÅĞÖØ¡¢¼ìÑé´ğ°¸¡¢Êä³ö´ğ°¸ 
+ï»¿/*************************************************************
+æ–‡ä»¶åï¼šverify.cpp
+ä½œè€…ï¼šç›–å˜‰è½© æ—¥æœŸï¼š2016/02/16
+æè¿°: æ£€éªŒå’Œè¾“å‡ºç»“æœ 
+ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šåˆ¤é‡ã€æ£€éªŒç­”æ¡ˆã€è¾“å‡ºç­”æ¡ˆ 
 *************************************************************/
 
 #include"head.h"
 
 int correct=0,wrong=0;
-bool ifOnly(string str,vector<string> se) //ÅĞ¶Ï±í´ïÊ½ÊÇ·ñÖØ¸´ 
+bool ifOnly(string str,vector<string> se) //åˆ¤æ–­è¡¨è¾¾å¼æ˜¯å¦é‡å¤ 
 {
 	int count=0;
 	for (int i=0;i<se.size();i++)
@@ -19,7 +19,7 @@ bool ifOnly(string str,vector<string> se) //ÅĞ¶Ï±í´ïÊ½ÊÇ·ñÖØ¸´
 	    if (count==se.size()) return true;
 		else return false;
 }
-void checkAndOutput(string equ,int n,int opt,string result) //¼ìÑé´ğ°¸²¢Êä³öÕıÈ·´ğ°¸ 
+void checkAndOutput(string equ,int n,int opt,string result) //æ£€éªŒç­”æ¡ˆå¹¶è¾“å‡ºæ­£ç¡®ç­”æ¡ˆ 
 {
 	string ans;
 	cout<<"("<<n<<") "<<equ<<"=";
@@ -27,20 +27,20 @@ void checkAndOutput(string equ,int n,int opt,string result) //¼ìÑé´ğ°¸²¢Êä³öÕıÈ·
 	if (ans==result)
 	{
 		if(opt==2)cout<<"Correct Answer!"<<endl;
-		else cout<<"ÕıÈ·"<<endl;
+		else cout<<"æ­£ç¡®"<<endl;
 		correct++;
 	}
 	else
 	{
 		if(opt==2)cout<<"Wrong Answer! The correct answer is "<<result<<endl;
-		else cout<<"´íÎó£¬ÕıÈ·´ğ°¸Îª£º"<<result<<endl;
+		else cout<<"é”™è¯¯ï¼Œæ­£ç¡®ç­”æ¡ˆä¸ºï¼š"<<result<<endl;
 		wrong++;
 	}
 }
-void finalOut(int opt) //Êä³öÕıÎó¸öÊı 
+void finalOut(int opt) //è¾“å‡ºæ­£è¯¯ä¸ªæ•° 
 {
 	cout<<"********************************************************************"<<endl;
 	cout<<"                                                                    "<<endl;
 	if(opt==2) cout<<"  "<<correct<<" answers are correct, "<<wrong<<" answers are wrong.";
-	else cout<<"×ö¶ÔÁË"<<correct<<"µÀÌâ£¬×ö´íÁË"<<wrong<<"µÀÌâ";	
+	else cout<<"åšå¯¹äº†"<<correct<<"é“é¢˜ï¼Œåšé”™äº†"<<wrong<<"é“é¢˜";	
 }

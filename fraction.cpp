@@ -1,25 +1,25 @@
-/*************************************************************
-ÎÄ¼şÃû£ºfraction.cpp 
-×÷Õß£ºĞíÓôÑî ÈÕÆÚ£º2016/02/16
-ÃèÊö: ·ÖÊıÀà 
-Ö÷Òª¹¦ÄÜ°üÀ¨£º·ÖÊıµÄÉú³É¡¢×ª»»ºÍËÄÔòÔËËã 
+ï»¿/*************************************************************
+æ–‡ä»¶åï¼šfraction.cpp 
+ä½œè€…ï¼šè®¸éƒæ¨ æ—¥æœŸï¼š2016/02/16
+æè¿°: åˆ†æ•°ç±» 
+ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šåˆ†æ•°çš„ç”Ÿæˆã€è½¬æ¢å’Œå››åˆ™è¿ç®— 
 *************************************************************/
 
 #include"head.h"
 
-int Fraction::greatestCommonDivisor(int x,int y) //×î´ó¹«Ô¼Êı 
+int Fraction::greatestCommonDivisor(int x,int y) //æœ€å¤§å…¬çº¦æ•° 
 {
 	if (y==0) return x;
 	else return greatestCommonDivisor(y,x%y);
 }
 Fraction::Fraction(){ }
-Fraction Fraction::getFrac(int l,int h) //Éú³É·ÖÊı 
+Fraction Fraction::getFrac(int l,int h) //ç”Ÿæˆåˆ†æ•° 
 {
 	Fraction frac;
 	int tmp1=0,tmp2=0;
 	char tmpc[MAX];
 	stringstream tmps5,tmps6;
-	while (Max(tmp1,tmp2)==0) //·ÀÖ¹·ÖÄ¸ÎªÁã 
+	while (Max(tmp1,tmp2)==0) //é˜²æ­¢åˆ†æ¯ä¸ºé›¶ 
 	{
 		tmp1=getRand(l,h);
 		tmp2=getRand(l,h);
@@ -32,7 +32,7 @@ Fraction Fraction::getFrac(int l,int h) //Éú³É·ÖÊı
 	tmps6>>frac.denominators;
 	return frac;
 }
-bool Fraction::checkZero(Fraction frac) //·ÀÖ¹³ıÊıÎªÁã 
+bool Fraction::checkZero(Fraction frac) //é˜²æ­¢é™¤æ•°ä¸ºé›¶ 
 {
 	if (frac.numerator==0) return true;
 	else return false;
@@ -42,7 +42,7 @@ bool Fraction::checkInt(Fraction frac)
 	if (frac.denominator==1) return true;
 	else return false;
 }
-Fraction Fraction::transFrac(int up,int down) //ÕûÊı×ª»»Îª·ÖÊı 
+Fraction Fraction::transFrac(int up,int down) //æ•´æ•°è½¬æ¢ä¸ºåˆ†æ•° 
 {
 	Fraction frac;
 	stringstream tmps9,tmps10;
@@ -54,7 +54,7 @@ Fraction Fraction::transFrac(int up,int down) //ÕûÊı×ª»»Îª·ÖÊı
 	tmps10>>frac.denominators;
 	return frac;
 }
-Fraction Fraction::simplify(Fraction frac) //·ÖÊı»¯¼ò 
+Fraction Fraction::simplify(Fraction frac) //åˆ†æ•°åŒ–ç®€ 
 {
 	int tmp;
 	char tmpc[MAX];
@@ -77,41 +77,41 @@ Fraction Fraction::simplify(Fraction frac) //·ÖÊı»¯¼ò
 	tmps8>>frac.denominators;
 	return frac;
 }
-string Fraction::transString(Fraction frac) //·ÖÊı×ªÎª×Ö·û´®£¨²»ÅĞ¶ÏÕûÊı£©
+string Fraction::transString(Fraction frac) //åˆ†æ•°è½¬ä¸ºå­—ç¬¦ä¸²ï¼ˆä¸åˆ¤æ–­æ•´æ•°ï¼‰
 {
 	string str;
 	str="("+frac.numerators+"\\"+frac.denominators+")";
 	return str;
 }
-string Fraction::transToString(Fraction frac) //·ÖÊı×ªÎª×Ö·û´®£¨ÅĞ¶ÏÕûÊı£©
+string Fraction::transToString(Fraction frac) //åˆ†æ•°è½¬ä¸ºå­—ç¬¦ä¸²ï¼ˆåˆ¤æ–­æ•´æ•°ï¼‰
 {
 	string str;
 	if (frac.denominator==1) str=frac.numerators;
 	else str="("+frac.numerators+"\\"+frac.denominators+")";
 	return str;
 }
-const Fraction operator +(Fraction frac1,Fraction frac2) //¼Ó·¨ 
+const Fraction operator +(Fraction frac1,Fraction frac2) //åŠ æ³• 
 {
 	Fraction answer;
 	answer.numerator=frac1.numerator*frac2.denominator+frac1.denominator*frac2.numerator;
 	answer.denominator=frac1.denominator*frac2.denominator;
 	return answer.simplify(answer);
 }
-const Fraction operator -(Fraction frac1,Fraction frac2) //¼õ·¨ 
+const Fraction operator -(Fraction frac1,Fraction frac2) //å‡æ³• 
 {
 	Fraction answer;
 	answer.numerator=frac1.numerator*frac2.denominator-frac1.denominator*frac2.numerator;
 	answer.denominator=frac1.denominator*frac2.denominator;
 	return answer.simplify(answer);
 }
-const Fraction operator *(Fraction frac1,Fraction frac2) //³Ë·¨ 
+const Fraction operator *(Fraction frac1,Fraction frac2) //ä¹˜æ³• 
 {
 	Fraction answer;
 	answer.numerator=frac1.numerator*frac2.numerator;
 	answer.denominator=frac1.denominator*frac2.denominator;
 	return answer.simplify(answer);
 }
-const Fraction operator /(Fraction frac1,Fraction frac2) //³ı·¨ 
+const Fraction operator /(Fraction frac1,Fraction frac2) //é™¤æ³• 
 {
 	Fraction answer;
 	answer.numerator=frac1.numerator*frac2.denominator;

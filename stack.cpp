@@ -1,20 +1,20 @@
-/*************************************************************
-ÎÄ¼şÃû£ºstack.cpp 
-×÷Õß£ºĞíÓôÑî ÈÕÆÚ£º2016/02/16
-ÃèÊö: Õ» 
-Ö÷Òª¹¦ÄÜ°üÀ¨£ºÖĞ×º×ª»»Îªºó×º¡¢¼ÆËãºó×º 
+ï»¿/*************************************************************
+æ–‡ä»¶åï¼šstack.cpp 
+ä½œè€…ï¼šè®¸éƒæ¨ æ—¥æœŸï¼š2016/02/16
+æè¿°: æ ˆ 
+ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šä¸­ç¼€è½¬æ¢ä¸ºåç¼€ã€è®¡ç®—åç¼€ 
 *************************************************************/
 
 #include"head.h"
 
- //ÔËËã·ûÕ» 
-void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º 
+ //è¿ç®—ç¬¦æ ˆ 
+void transEquation(string infix,char postfix[]) //ä¸­ç¼€è½¬ä¸ºåç¼€ 
 {
 	int i=0,j=0;stack<char> stored;
 	while (i<infix.size())
 	//while (infix[i]!='\0')
 	{
-		if ((infix[i]>='0')&&(infix[i]<='9')) //ÅĞ¶ÏÊı×Ö 
+		if ((infix[i]>='0')&&(infix[i]<='9')) //åˆ¤æ–­æ•°å­— 
 		{
 			while ((infix[i]>='0')&&(infix[i]<='9'))
 			{
@@ -22,12 +22,12 @@ void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º
 					i++;
 					j++;
 			}
-			postfix[j]='!'; //±êÊ¶µ¥¸öÕûÊı 
+			postfix[j]='!'; //æ ‡è¯†å•ä¸ªæ•´æ•° 
 			j++;
 		}
-		if (infix[i]=='(') //ÅĞ¶Ï·ÖÊı 
+		if (infix[i]=='(') //åˆ¤æ–­åˆ†æ•° 
 		{	
-			while (infix[i]!=')') //½«·ÖÊı×÷ÎªÕûÌå 
+			while (infix[i]!=')') //å°†åˆ†æ•°ä½œä¸ºæ•´ä½“ 
     		{
 	    		postfix[j]=infix[i];
 		    	i++;
@@ -37,7 +37,7 @@ void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º
     		i++;
     		j++;
 		}
-		if ((infix[i]=='+')||(infix[i]=='-')) //ÅĞ¶Ï'+'¡¢'-' 
+		if ((infix[i]=='+')||(infix[i]=='-')) //åˆ¤æ–­'+'ã€'-' 
 		{
 			while ((!stored.empty())&&(stored.top()!='['))
 			{
@@ -47,7 +47,7 @@ void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º
 			}
 			stored.push(infix[i]);
 		}
-		if ((infix[i]=='*')||(infix[i]=='/')) //ÅĞ¶Ï'*'¡¢'/' 
+		if ((infix[i]=='*')||(infix[i]=='/')) //åˆ¤æ–­'*'ã€'/' 
 		{
 			while ((!stored.empty())&&(stored.top()!='[')&&((stored.top()=='*')||(stored.top()=='/')))
 			{
@@ -57,8 +57,8 @@ void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º
 			}
 			stored.push(infix[i]);
 		}
-		if (infix[i]=='[') stored.push(infix[i]); //ÅĞ¶Ï'[' 
-		if (infix[i]==']') //ÅĞ¶Ï']' 
+		if (infix[i]=='[') stored.push(infix[i]); //åˆ¤æ–­'[' 
+		if (infix[i]==']') //åˆ¤æ–­']' 
 		{
 			while (stored.top()!='[')
 			{
@@ -70,25 +70,25 @@ void transEquation(string infix,char postfix[]) //ÖĞ×º×ªÎªºó×º
 		}
 		i++;
 	}
-	while (!stored.empty()) //²ĞÓàÔËËã·û 
+	while (!stored.empty()) //æ®‹ä½™è¿ç®—ç¬¦ 
 	{
 		postfix[j]=stored.top();
 		j++;
 		stored.pop();
 	}
-	postfix[j]='\0'; //ÖÕÖ¹·û 
+	postfix[j]='\0'; //ç»ˆæ­¢ç¬¦ 
 }
- //ÊıÕ» 
-string countEquation(string infix) //¼ÆËãºó×ºµÄÖµ 
+ //æ•°æ ˆ 
+string countEquation(string infix) //è®¡ç®—åç¼€çš„å€¼ 
 {
 	int i=0,point=-1,check=0;
 	char postfix[MAX];Fraction figure[MAX];
 	transEquation(infix,postfix);
 	while ((postfix[i]!='\0')&&(i<1000))
 	{
-		if ((postfix[i]>='0')&&(postfix[i]<='9')) //ÕûÊıÈëÕ» 
+		if ((postfix[i]>='0')&&(postfix[i]<='9')) //æ•´æ•°å…¥æ ˆ 
 		{
-			double k=0; //int»á¼ÆËã³ö´í 
+			double k=0; //intä¼šè®¡ç®—å‡ºé”™ 
 			while ((postfix[i]>='0')&&(postfix[i]<='9'))
 			{
 				k=10*k+postfix[i]-'0';
@@ -98,9 +98,9 @@ string countEquation(string infix) //¼ÆËãºó×ºµÄÖµ
 			figure[point]=figure[point].transFrac(k,1);
     	}
     	else
-    	if (postfix[i]=='(') //·ÖÊıÈëÕ» 
+    	if (postfix[i]=='(') //åˆ†æ•°å…¥æ ˆ 
     	{
-			double up=0,down=0; //int»á¼ÆËã³ö´í 
+			double up=0,down=0; //intä¼šè®¡ç®—å‡ºé”™ 
 			i++;
 			while (postfix[i]!='\\')
 			{
@@ -127,12 +127,12 @@ string countEquation(string infix) //¼ÆËãºó×ºµÄÖµ
 				         break;
 				case '*':figure[point]=figure[point]*figure[point+1];
 				         break;
-				case '/':if (figure[point+1].checkZero(figure[point+1])) check=1; //±êÊ¶³ıÁã 
+				case '/':if (figure[point+1].checkZero(figure[point+1])) check=1; //æ ‡è¯†é™¤é›¶ 
 					     figure[point]=figure[point]/figure[point+1];
 			}
 		}
 		i++;
 	}
-	if ((check==0)&&(figure[point].checkInt(figure[point]))) return figure[point].transToString(figure[point]); //ÅĞ¶ÏÊÇ·ñ³ıÁã 
+	if ((check==0)&&(figure[point].checkInt(figure[point]))) return figure[point].transToString(figure[point]); //åˆ¤æ–­æ˜¯å¦é™¤é›¶ 
 	else return "non_comformance";
 }
