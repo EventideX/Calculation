@@ -1,5 +1,19 @@
-﻿  main.cpp
-c:\users\asus\desktop\c++\calculation\calculation\main.cpp(13): warning C4101: “k”: 未引用的局部变量
-c:\users\asus\desktop\c++\calculation\calculation\main.cpp(13): warning C4101: “j”: 未引用的局部变量
+﻿  calculate.cpp
+c:\users\asus\desktop\c++\calculation\calculation\calculate.cpp(14): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\asus\desktop\c++\calculation\calculation\calculate.cpp(98): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+c:\users\asus\desktop\c++\calculation\calculation\calculate.cpp(117): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  正在生成代码...
+  正在编译...
+  generate.cpp
+c:\users\asus\desktop\c++\calculation\calculation\generate.cpp(54): warning C4018: “<”: 有符号/无符号不匹配
+  fraction.cpp
+c:\users\asus\desktop\c++\calculation\calculation\fraction.cpp(19): warning C4101: “tmpc”: 未引用的局部变量
+c:\users\asus\desktop\c++\calculation\calculation\fraction.cpp(56): warning C4101: “tmpc”: 未引用的局部变量
+  正在生成代码...
+c:\users\asus\desktop\c++\calculation\calculation\generate.cpp(50): warning C4715: “randomOperation”: 不是所有的控件路径都返回值
+  正在跳过...(未检测到相关更改)
+  scan.cpp
+  print.cpp
+  main.cpp
   Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation\Debug\Calculation.exe
   Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation\Debug\Calculation.pdb (Full PDB)

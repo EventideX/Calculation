@@ -1,6 +1,6 @@
 /*************************************************************
 文件名：head.h
-作者：盖嘉轩 许郁杨 日期：2017/03/14
+作者：盖嘉轩 许郁杨 日期：2017/04/20
 描述: 头文件
 *************************************************************/
 
@@ -22,18 +22,22 @@
 #define MAX 1000
 using namespace std;
 
+/*scan.cpp*/
+void scan();
+
 /*generate.cpp*/
-int getRand(int down, int up);
-void getAndCalculate(int num, int low, int high, int flag0, char flag1, char flag2, char flag3);
-
-/*Stack.cpp*/
-void transEquation(string infix, char postfix[]);
-string countEquation(string infix);
-
-/*verify.cpp*/
+int randomNumber(int down, int up);
+char randomOperation(int flag1);
 bool ifOnly(string str, vector<string> se);
-void checkAndOutput(string equ, int n, string result);
-void finalOut();
+void generateExpression(int num, int low, int high, int flag0, char flag1, char flag2, char flag3);
+
+/*calculate.cpp*/
+void transExpression(string infix, char postfix[]);
+string calculateResult(string infix);
+
+/*print.cpp*/
+void checkAndPrint(string equ, int n, string result);
+void print();
 
 /*fraction.cpp*/
 class Fraction
@@ -45,15 +49,14 @@ private:
 
 public:
 	Fraction();
-	Fraction(int numerator, int denominator);
-	Fraction getFrac(int l, int h);
-	bool checkZero(Fraction frac);
-	bool checkInt(Fraction frac);
-	Fraction transFrac(int up, int down);
+	void getFrac(int l, int h);
+	bool checkZero();
+	bool checkInt();
+	void transFrac(int up, int down);
 
-	Fraction simplify(Fraction frac);
-	string transString(Fraction frac);
-	string transToString(Fraction frac);
+	void simplify();
+	string transString();
+	string transToString();
 
 	friend const Fraction operator +(Fraction frac1, Fraction frac2);
 	friend const Fraction operator -(Fraction frac1, Fraction frac2);

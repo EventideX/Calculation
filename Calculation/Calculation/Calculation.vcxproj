@@ -22,8 +22,9 @@
     <ClCompile Include="fraction.cpp" />
     <ClCompile Include="generate.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="stack.cpp" />
-    <ClCompile Include="verify.cpp" />
+    <ClCompile Include="scan.cpp" />
+    <ClCompile Include="calculate.cpp" />
+    <ClCompile Include="print.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
@@ -41,7 +42,7 @@
     <ResourceCompile Include="Francais.rc" />
     <ResourceCompile Include="languageList.rc" />
     <ResourceCompile Include="中文.rc" />
-    <ResourceCompile Include="日本语.rc" />
+    <ResourceCompile Include="日本語.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{69633783-FE52-4FAD-91AF-A2815F2F9C71}</ProjectGuid>

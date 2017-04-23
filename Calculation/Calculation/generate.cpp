@@ -1,15 +1,15 @@
 /*************************************************************
 文件名：generate.cpp
-作者：盖嘉轩 许郁杨 日期：2017/03/17
+作者：盖嘉轩 许郁杨 日期：2017/04/20
 描述: 生成表达式
-主要功能包括：生成随机数、生成表达式
+主要功能包括：生成随机数、生成运算符、生成表达式、判重
 *************************************************************/
 
 #include"head.h"
 extern UINT idValue;
 
 int flag = 1, k = 0;
-int getRand(int down, int up)//生成随机数 
+int randomNumber(int down, int up)//生成随机数 
 {
 	if (flag == 1)
 	{
@@ -18,8 +18,49 @@ int getRand(int down, int up)//生成随机数
 	}
 	return random(down, up);
 }
+char randomOperation(int flag1)
+{
+	int tmp;
+	if (flag1 == 'y') //允许乘除 
+	{
+		tmp = randomNumber(1, 4);
+		switch (tmp)
+		{
+		case 1:return '+';
+			break;
+		case 2:return '-';
+			break;
+		case 3:return '*';
+			break;
+		case 4:return '/';
+			break;
+		}
+	}
+	else
+	{
+		tmp = randomNumber(1, 2);
+		switch (tmp)
+		{
+		case 1:return '+';
+			break;
+		case 2:return '-';
+			break;
+		}
+	}
+}
+bool ifOnly(string str, vector<string> se) //判断表达式是否重复 
+{
+	int count = 0;
+	for (int i = 0; i<se.size(); i++)
+	{
+		if (str != se[i]) count++;
+		else break;
+	}
+	if (count == se.size()) return true;
+	else return false;
+}
 vector<string> equation;
-void getAndCalculate(int num, int low, int high, int flag0, char flag1, char flag2, char flag3)
+void generateExpression(int num, int low, int high, int flag0, char flag1, char flag2, char flag3)
 {
 	int i = 1, tmp;
 	char sign;
@@ -29,61 +70,42 @@ void getAndCalculate(int num, int low, int high, int flag0, char flag1, char fla
 		string paras1, paras2, equ;
 		for (int j = 0; j<number - 1; j++)
 		{
-			if (flag1 == 'y') //允许乘除 
-			{
-				tmp = getRand(1, 4);
-				switch (tmp)
-				{
-				case 1:sign = '+';
-					break;
-				case 2:sign = '-';
-					break;
-				case 3:sign = '*';
-					break;
-				case 4:sign = '/';
-					break;
-				}
-			}
-			else
-			{
-				tmp = getRand(1, 2);
-				switch (tmp)
-				{
-				case 1:sign = '+';
-					break;
-				case 2:sign = '-';
-					break;
-				}
-			}
+			sign = randomOperation(flag1); //生成运算符
+
 			if (flag2 == 'y') //允许分数 
 			{
-				tmp = getRand(1, 3);
+				tmp = randomNumber(1, 3);
 				switch (tmp)
 				{
 				case 1: //整数和整数 
 				{
 					stringstream tmps1, tmps2;
-					tmps1 << getRand(low, high);
+					tmps1 << randomNumber(low, high);
 					tmps1 >> paras1;
-					tmps2 << getRand(low, high);
+					tmps2 << randomNumber(low, high);
 					tmps2 >> paras2;
 					break;
 				}
 				case 2: //整数和真分数 
 				{
 					stringstream tmps;
-					tmps << getRand(low, high);
+					tmps << randomNumber(low, high);
 					tmps >> paras1;
-					Fraction frac2 = frac2.simplify(frac2.getFrac(low, high));
-					paras2 = frac2.transString(frac2);
+					Fraction frac2;
+					frac2.getFrac(low, high);
+					frac2.simplify();
+					paras2 = frac2.transString();
 					break;
 				}
 				case 3: //分数和分数 
 				{
-					Fraction frac1 = frac1.simplify(frac1.getFrac(low, high));
-					Fraction frac2 = frac2.simplify(frac2.getFrac(low, high));
-					paras1 = frac1.transString(frac1);
-					paras2 = frac2.transString(frac2);
+					Fraction frac1, frac2;
+					frac1.getFrac(low, high);
+					frac1.simplify();
+					frac2.getFrac(low, high);
+					frac2.simplify();
+					paras1 = frac1.transString();
+					paras2 = frac2.transString();
 					break;
 				}
 				}
@@ -91,14 +113,14 @@ void getAndCalculate(int num, int low, int high, int flag0, char flag1, char fla
 			else
 			{
 				stringstream tmps3, tmps4;
-				tmps3 << getRand(low, high);
+				tmps3 << randomNumber(low, high);
 				tmps3 >> paras1;
-				tmps4 << getRand(low, high);
+				tmps4 << randomNumber(low, high);
 				tmps4 >> paras2;
 			}
 			if (flag3 == 'y') //允许括号
 			{
-				tmp = getRand(1, 4);
+				tmp = randomNumber(1, 4);
 				switch (tmp)
 				{
 				case 1: //无括号 
@@ -145,7 +167,7 @@ void getAndCalculate(int num, int low, int high, int flag0, char flag1, char fla
 			}
 			else
 			{
-				tmp = getRand(1, 2);
+				tmp = randomNumber(1, 2);
 				switch (tmp)
 				{
 				case 1:
@@ -170,14 +192,13 @@ void getAndCalculate(int num, int low, int high, int flag0, char flag1, char fla
 				}
 			}
 		}
-		string result = countEquation(equ);
+		string result = calculateResult(equ);
 		if ((ifOnly(equ, equation)) && (result != "non_comformance")) //判断表达式是否重复以及是否除零 
 		{
 			equation.push_back(equ);
-			checkAndOutput(equ, i, result);
+			checkAndPrint(equ, i, result);
 			i++;
 		}
 	}
 	idValue++;
-	finalOut();
 }

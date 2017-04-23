@@ -15,19 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fraction.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="generate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="stack.cpp">
+    <ClCompile Include="scan.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="verify.cpp">
+    <ClCompile Include="calculate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="print.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fraction.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,25 +38,25 @@
     <ClInclude Include="head.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource4.h">
+    <ClInclude Include="resource6.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="resource5.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource6.h">
+    <ClInclude Include="resource4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -67,13 +70,13 @@
     <ResourceCompile Include="中文.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="日本语.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
     <ResourceCompile Include="Francais.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
     <ResourceCompile Include="Deutsch.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="日本語.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
