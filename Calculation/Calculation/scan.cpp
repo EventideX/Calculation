@@ -83,10 +83,15 @@ void scan()
 	wcout << (LPCTSTR)langStr;
 	cin >> flag3; // «∑Ò‘ –Ì¿®∫≈
 
-	idValue++;
-
 	cout << endl << "********************************************************************" << endl;
-	cout << "                                                                    " << endl;
+	cout << endl;
+
+	langStr.LoadString(++idValue);
+	wcout << (LPCTSTR)langStr << endl;
+
+	cout << endl;
+
+	idValue+=2;
 
 	generateExpression(num, low, high, flag0, flag1, flag2, flag3);
 }

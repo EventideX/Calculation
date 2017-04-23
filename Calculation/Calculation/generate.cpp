@@ -6,7 +6,6 @@
 *************************************************************/
 
 #include"head.h"
-extern UINT idValue;
 
 int flag = 1, k = 0;
 int randomNumber(int down, int up)//生成随机数 
@@ -200,5 +199,4 @@ void generateExpression(int num, int low, int high, int flag0, char flag1, char 
 			i++;
 		}
 	}
-	idValue++;
 }

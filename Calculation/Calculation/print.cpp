@@ -16,15 +16,20 @@ void checkAndPrint(string equ, int n, string result) //检验答案并输出正确答案
 	cout << "(" << n << ") " << equ << "=";
 	wcout.imbue(locale("CHS"));
 	cin >> ans;
+	if (ans == "e")
+	{
+		print();
+		exit(0);
+	}
 	if (ans == result)
 	{
-		str.LoadString(idValue);
+		str.LoadString(idValue - 1);
 		wcout << (LPCTSTR)str << endl;
 		correct++;
 	}
 	else
 	{
-		str.LoadString(idValue + 1);
+		str.LoadString(idValue);
 		wcout << (LPCTSTR)str;
 		cout << result << endl;
 		wrong++;
