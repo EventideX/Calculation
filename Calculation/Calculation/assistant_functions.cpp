@@ -95,26 +95,32 @@ int ReadFile(char *filename)//filenameÊÇ¾ø¶ÔÂ·¾¶
 void PrintFinalResult(char *filename, int correct, int wrong)
 {
 	CString sentence;
-	/*cout << "********************************************************************" << endl;
-	cout << endl;
-	wcout.imbue(locale("CHS"));
-	sentence.LoadString(++g_idValue);
-	wcout << (LPCTSTR)sentence;
-	cout << correct << endl;
-	sentence.LoadString(++g_idValue);
-	wcout << (LPCTSTR)sentence;
-	cout << wrong << endl;
-	g_idValue -= 2;*/
 	fstream ostream;
+	wfstream wostream;
+
 	ostream.open(filename, ios::app);
 	ostream << "********************************************************************" << endl;
 	ostream << endl;
-	wcout.imbue(locale("CHS"));
+	ostream.close();
+
+	wostream.imbue(locale("CHS"));
 	sentence.LoadString(++g_idValue);
-	ostream << (LPCTSTR)sentence;
-	cout << correct << endl;
+
+	wostream.open(filename, ios::app);
+	wostream << (LPCTSTR)sentence;
+	wostream.close();
+
+	ostream.open(filename, ios::app);
+	ostream << correct << endl;
+	ostream.close();
+
 	sentence.LoadString(++g_idValue);
-	ostream << (LPCTSTR)sentence;
-	cout << wrong << endl;
+
+	wostream.open(filename, ios::app);
+	wostream << (LPCTSTR)sentence;
+	wostream.close();
+
+	ostream.open(filename, ios::app);
+	ostream << wrong << endl;
 	ostream.close();
 }

@@ -13,7 +13,7 @@
 #include<atlstr.h>
 #include<fstream>
 using namespace std;
-UINT g_idValue = 0;
+UINT g_idValue;
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	cout << "Which language you would like to choose?\n";
 	
 	int i = 1;
+	g_idValue = 0;
 	CString languageList;
 	languageList.LoadString(++g_idValue);//载入语言列表
 	while (languageList != "End")//输出可选语言列表
@@ -45,12 +46,10 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	int problemNumber = ReadFile(argv[1]);//题目个数
-	CString sentence;
-	//sentence.LoadString(g_idValue);
-	//wcout << endl << (LPCTSTR)sentence;
-	//cin >> problemNumber;
+	int problemNumber;
+	problemNumber = ReadFile(argv[1]);//题目个数
 
+	CString sentence;
 	int low, high;//参数绝对值范围
 	sentence.LoadString(++g_idValue);
 	wcout << (LPCTSTR)sentence;
@@ -90,12 +89,21 @@ int main(int argc, char *argv[])
 		Expression expression;
 		string answer, result;
 		string equation;
+
 		equation = expression.GenerateInfixExpression(low, high, parameterNumber, ifMultiplyDivide, ifFraction, ifBracket);
 		cout << "(" << i << ") " << equation << "=";
 		cin >> answer;
+		cout << endl;
+
 		fstream ostream;
+		wfstream wostream;
+
+		wostream.imbue(locale("CHS"));
+
 		ostream.open(argv[2], ios::app);
 		ostream << "(" << i << ") " << equation << endl;
+		ostream.close();
+
 		if (answer == "e")
 		{
 			PrintFinalResult(argv[2], correct, wrong);
@@ -105,20 +113,29 @@ int main(int argc, char *argv[])
 		if (answer == result)
 		{
 			sentence.LoadString(g_idValue - 1);
-			ostream << (LPCTSTR)sentence << endl;
+
+			wostream.open(argv[2], ios::app);
+			wostream << (LPCTSTR)sentence << endl;
+			wostream.close();
+
 			correct++;
 		}
 		else
 		{
 			sentence.LoadString(g_idValue);
-			ostream << (LPCTSTR)sentence;
+
+			wostream.open(argv[2], ios::app);
+			wostream << (LPCTSTR)sentence;
+			wostream.close();
+
+			ostream.open(argv[2], ios::app);
 			ostream << result << endl;
+			ostream.close();
+
 			wrong++;
 		}
-		cout << endl;
-		//ostream << Resource[13] << ": " << answer << endl;
-		//ostream << Resource[14] << ": " << result << endl << endl;
-
+		ostream.open(argv[2], ios::app);
+		ostream << endl;
 		ostream.close();
 	}
 	PrintFinalResult(argv[2], correct, wrong);
