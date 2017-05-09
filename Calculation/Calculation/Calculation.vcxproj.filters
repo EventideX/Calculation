@@ -15,68 +15,68 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="generate.cpp">
+    <ClCompile Include="fraction.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="scan.cpp">
+    <ClCompile Include="assistant_functions.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="calculate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="print.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="fraction.cpp">
+    <ClCompile Include="expression.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h">
+    <ClInclude Include="fraction.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource6.h">
+    <ClInclude Include="assistant_functions.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource5.h">
+    <ClInclude Include="expression.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource4.h">
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource3.h">
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource2.h">
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h">
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource3.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource6.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="English.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\Deutsch.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="languageList.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\English.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="中文.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\Francais.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="Francais.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\日本語.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="Deutsch.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\中文.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="日本語.rc">
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\languageList.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>

@@ -1,119 +1,141 @@
 /*************************************************************
 文件名：fraction.cpp
-作者：许郁杨 日期：2017/02/16
+作者：许郁杨 日期：2017/05/07
 描述: 分数类
 主要功能包括：分数的生成、转换和四则运算
 *************************************************************/
 
-#include"head.h"
+#include"fraction.h"
+#include<iostream>
+#include<sstream>
+using namespace std;
 
-int Fraction::greatestCommonDivisor(int x, int y) //最大公约数 
-{
-	if (y == 0) return x;
-	else return greatestCommonDivisor(y, x%y);
-}
 Fraction::Fraction() { }
-void Fraction::getFrac(int l, int h) //生成分数 
+
+/*生成分数 日期：2017/05/07*/
+void Fraction::GetFraction(int l, int h)
 {
-	int tmp1 = 0, tmp2 = 0;
-	char tmpc[MAX];
-	stringstream tmps5, tmps6;
-	while (Max(tmp1, tmp2) == 0) //防止分母为零 
+	int ntmp1 = 0, ntmp2 = 0;
+	stringstream sstmp1, sstmp2;
+	while (Max(ntmp1, ntmp2) == 0)
 	{
-		tmp1 = randomNumber(l, h);
-		tmp2 = randomNumber(l, h);
+		ntmp1 = RandomNumber(l, h);
+		ntmp2 = RandomNumber(l, h);
 	}
-	numerator = Min(tmp1, tmp2);
-	denominator = Max(tmp1, tmp2);
-	tmps5 << numerator;
-	tmps5 >> numerators;
-	tmps6 << denominator;
-	tmps6 >> denominators;
+	m_nnumerator = Min(ntmp1, ntmp2);
+	m_ndenominator = Max(ntmp1, ntmp2);
+	sstmp1 << m_nnumerator;
+	sstmp1 >> m_snumerator;
+	sstmp2 << m_ndenominator;
+	sstmp2 >> m_sdenominator;
 }
-bool Fraction::checkZero() //防止除数为零 
+
+/*检查除数是否为零 日期：2017/05/07*/
+bool Fraction::HaveZero()
 {
-	if (numerator == 0) return true;
+	if (m_nnumerator == 0) return true;
 	else return false;
 }
-bool Fraction::checkInt()
+
+/*检查是否可化简整数 日期：2017/05/07*/
+bool Fraction::IsInt()
 {
-	if (denominator == 1) return true;
+	if (m_ndenominator == 1) return true;
 	else return false;
 }
-void Fraction::transFrac(int up, int down) //整数转换为分数 
+
+/*将整数转换为分数形式 日期：2017/05/07*/
+void Fraction::TransferIntIntoFraction(int up, int down)
 {
-	stringstream tmps9, tmps10;
-	numerator = up;
-	denominator = down;
-	tmps9 << numerator;
-	tmps9 >> numerators;
-	tmps10 << denominator;
-	tmps10 >> denominators;
+	stringstream sstmp1, sstmp2;
+	m_nnumerator = up;
+	m_ndenominator = down;
+	sstmp1 << m_nnumerator;
+	sstmp1 >> m_snumerator;
+	sstmp2 << m_ndenominator;
+	sstmp2 >> m_sdenominator;
+	sstmp1.clear();
+	sstmp2.clear();
 }
-void Fraction::simplify() //分数化简 
+
+/*化简分数 日期：2017/05/07*/
+void Fraction::Simplify()
 {
-	int tmp;
-	char tmpc[MAX];
-	stringstream tmps7, tmps8;
-	if (denominator<0)
+	int ntmp;
+	stringstream sstmp1, sstmp2;
+	if (m_ndenominator<0)
 	{
-		denominator = -denominator;
-		numerator = -numerator;
+		m_ndenominator = -m_ndenominator;
+		m_nnumerator = -m_nnumerator;
 	}
-	if (numerator == 0) denominator = 1;
+	if (m_nnumerator == 0) m_ndenominator = 1;
 	else
 	{
-		tmp = greatestCommonDivisor(abs(denominator), abs(numerator));
-		numerator /= tmp;
-		denominator /= tmp;
+		ntmp = GreatestCommonDivisor(abs(m_ndenominator), abs(m_nnumerator));
+		m_nnumerator /= ntmp;
+		m_ndenominator /= ntmp;
 	}
-	tmps7 << numerator;
-	tmps7 >> numerators;
-	tmps8 << denominator;
-	tmps8 >> denominators;
+	sstmp1 << m_nnumerator;
+	sstmp1 >> m_snumerator;
+	sstmp2 << m_ndenominator;
+	sstmp2 >> m_sdenominator;
+	sstmp1.clear();
+	sstmp2.clear();
 }
-string Fraction::transString() //分数转为字符串（不判断整数）
+
+/*将分数转换为字符串形式（不区分整数） 日期：2017/05/07*/
+string Fraction::TransferIntoStringNoInt()
 {
 	string str;
-	str = "(" + numerators + "\\" + denominators + ")";
+	str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
 	return str;
 }
-string Fraction::transToString() //分数转为字符串（判断整数）
+
+/*将分数转换为字符串形式（区分整数） 日期：2017/05/07*/
+string Fraction::TransferIntoString()
 {
 	string str;
-	if (denominator == 1) str = numerators;
-	else str = "(" + numerators + "\\" + denominators + ")";
+	if (m_ndenominator == 1) str = m_snumerator;
+	else str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
 	return str;
 }
-const Fraction operator +(Fraction frac1, Fraction frac2) //加法 
+
+/*重载加法运算符 日期：2017/05/07*/
+const Fraction operator +(Fraction frac1, Fraction frac2)
 {
 	Fraction answer;
-	answer.numerator = frac1.numerator*frac2.denominator + frac1.denominator*frac2.numerator;
-	answer.denominator = frac1.denominator*frac2.denominator;
-	answer.simplify();
+	answer.m_nnumerator = frac1.m_nnumerator*frac2.m_ndenominator + frac1.m_ndenominator*frac2.m_nnumerator;
+	answer.m_ndenominator = frac1.m_ndenominator*frac2.m_ndenominator;
+	answer.Simplify();
 	return answer;
 }
-const Fraction operator -(Fraction frac1, Fraction frac2) //减法 
+
+/*重载减法运算符 日期：2017/05/07*/
+const Fraction operator -(Fraction frac1, Fraction frac2)
 {
 	Fraction answer;
-	answer.numerator = frac1.numerator*frac2.denominator - frac1.denominator*frac2.numerator;
-	answer.denominator = frac1.denominator*frac2.denominator;
-	answer.simplify();
+	answer.m_nnumerator = frac1.m_nnumerator*frac2.m_ndenominator - frac1.m_ndenominator*frac2.m_nnumerator;
+	answer.m_ndenominator = frac1.m_ndenominator*frac2.m_ndenominator;
+	answer.Simplify();
 	return answer;
 }
-const Fraction operator *(Fraction frac1, Fraction frac2) //乘法 
+
+/*重载乘法运算符 日期：2017/05/07*/
+const Fraction operator *(Fraction frac1, Fraction frac2)
 {
 	Fraction answer;
-	answer.numerator = frac1.numerator*frac2.numerator;
-	answer.denominator = frac1.denominator*frac2.denominator;
-	answer.simplify();
+	answer.m_nnumerator = frac1.m_nnumerator*frac2.m_nnumerator;
+	answer.m_ndenominator = frac1.m_ndenominator*frac2.m_ndenominator;
+	answer.Simplify();
 	return answer;
 }
-const Fraction operator /(Fraction frac1, Fraction frac2) //除法 
+
+/*重载除法运算符 日期：2017/05/07*/
+const Fraction operator /(Fraction frac1, Fraction frac2)
 {
 	Fraction answer;
-	answer.numerator = frac1.numerator*frac2.denominator;
-	answer.denominator = frac1.denominator*frac2.numerator;
-	answer.simplify();
+	answer.m_nnumerator = frac1.m_nnumerator*frac2.m_ndenominator;
+	answer.m_ndenominator = frac1.m_ndenominator*frac2.m_nnumerator;
+	answer.Simplify();
 	return answer;
 }

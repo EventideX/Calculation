@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>55</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>59</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>67</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>71</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>78</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>99</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>105</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

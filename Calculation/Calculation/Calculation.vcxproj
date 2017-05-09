@@ -18,34 +18,8 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="fraction.cpp" />
-    <ClCompile Include="generate.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="scan.cpp" />
-    <ClCompile Include="calculate.cpp" />
-    <ClCompile Include="print.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="head.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
-    <ClInclude Include="resource2.h" />
-    <ClInclude Include="resource3.h" />
-    <ClInclude Include="resource4.h" />
-    <ClInclude Include="resource5.h" />
-    <ClInclude Include="resource6.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Deutsch.rc" />
-    <ResourceCompile Include="English.rc" />
-    <ResourceCompile Include="Francais.rc" />
-    <ResourceCompile Include="languageList.rc" />
-    <ResourceCompile Include="中文.rc" />
-    <ResourceCompile Include="日本語.rc" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{69633783-FE52-4FAD-91AF-A2815F2F9C71}</ProjectGuid>
+    <ProjectGuid>{5A8C8D7D-DA7B-44BF-AC72-415F329B0993}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Calculation</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -115,7 +89,6 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -172,6 +145,32 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="assistant_functions.cpp" />
+    <ClCompile Include="expression.cpp" />
+    <ClCompile Include="fraction.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource1.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource2.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource3.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource4.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource5.h" />
+    <ClInclude Include="..\..\..\Calculation\Calculation\resource6.h" />
+    <ClInclude Include="assistant_functions.h" />
+    <ClInclude Include="expression.h" />
+    <ClInclude Include="fraction.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\Deutsch.rc" />
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\English.rc" />
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\Francais.rc" />
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\languageList.rc" />
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\中文.rc" />
+    <ResourceCompile Include="..\..\..\Calculation\Calculation\日本語.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

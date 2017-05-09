@@ -1,14 +1,126 @@
-ï»¿/*************************************************************
-æ–‡ä»¶åï¼šmain.cpp
-ä½œè€…ï¼šè®¸éƒæ¨ æ—¥æœŸï¼š2017/04/20
-æè¿°: ä¸»å‡½æ•°
-ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼šå¼€å§‹ç¨‹åº
+/*************************************************************
+ÎÄ¼şÃû£ºmain.cpp
+×÷Õß£ºĞíÓôÑî ÈÕÆÚ£º2017/05/07
+ÃèÊö: Ö÷º¯Êı
 *************************************************************/
-#include"head.h"
+#include"expression.h"
+#include"assistant_functions.h"
+#include<iostream>
+#include<cstdlib>
+#include<cstring>
+#include<sstream>
+#include<cassert>
+#include<atlstr.h>
+#include<fstream>
+using namespace std;
+UINT g_idValue = 0;
 
-int main()
+int main(int argc, char *argv[])
 {
-	scan();
-	print();
+	wcout.imbue(locale("CHS"));//ÉèÖÃÇøÓò
+	cout << "Which language you would like to choose?\n";
+	
+	int i = 1;
+	CString languageList;
+	languageList.LoadString(++g_idValue);//ÔØÈëÓïÑÔÁĞ±í
+	while (languageList != "End")//Êä³ö¿ÉÑ¡ÓïÑÔÁĞ±í
+	{
+		cout << i << '.';
+		wcout << (LPCTSTR)languageList << endl;
+		i++;
+		languageList.LoadString(++g_idValue);
+	}
+	cout << "Please input the name of the language£º";
+
+	bool isSupportLanguage = false;//ÅĞ¶ÏÓÃ»§ÊäÈëµÄÓïÑÔÊÇ·ñÖ§³Ö
+	g_idValue = 0;
+	while (!isSupportLanguage)
+	{
+		char Language[kMax];
+		fgets(Language, kMax, stdin);//¶ÁÈëÓÃ»§ËùÑ¡ÓïÑÔ
+		isSupportLanguage = MatchLanguage(Language);
+		if (!isSupportLanguage)
+		{
+			cout << "Sorry, please choose other language£º";
+		}
+	}
+
+	int problemNumber = ReadFile(argv[1]);//ÌâÄ¿¸öÊı
+	CString sentence;
+	//sentence.LoadString(g_idValue);
+	//wcout << endl << (LPCTSTR)sentence;
+	//cin >> problemNumber;
+
+	int low, high;//²ÎÊı¾ø¶ÔÖµ·¶Î§
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence;
+	cin >> low >> high;
+
+	int parameterNumber;//±í´ïÊ½²ÎÊı¸öÊı
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence;
+	cin >> parameterNumber;
+
+	char ifMultiplyDivide;//ÊÇ·ñÔÊĞí³Ë³ı(Y/N)
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence;
+	cin >> ifMultiplyDivide;
+
+	char ifFraction;//ÊÇ·ñÔÊĞí·ÖÊı(Y/N)
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence;
+	cin >> ifFraction;
+
+	char ifBracket;//ÊÇ·ñÔÊĞíÀ¨ºÅ(Y/N)
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence;
+	cin >> ifBracket;
+
+	cout << endl << "********************************************************************" << endl;
+	cout << endl;
+
+	sentence.LoadString(++g_idValue);
+	wcout << (LPCTSTR)sentence << endl << endl;
+
+	g_idValue += 2;
+	
+	int correct = 0, wrong = 0;
+	for (i = 1; i <= problemNumber; i++)
+	{
+		Expression expression;
+		string answer, result;
+		string equation;
+		equation = expression.GenerateInfixExpression(low, high, parameterNumber, ifMultiplyDivide, ifFraction, ifBracket);
+		cout << "(" << i << ") " << equation << "=";
+		cin >> answer;
+		fstream ostream;
+		ostream.open(argv[2], ios::app);
+		ostream << "(" << i << ") " << equation << endl;
+		if (answer == "e")
+		{
+			PrintFinalResult(argv[2], correct, wrong);
+			exit(0);
+		}
+		result = expression.CalculateResult();
+		if (answer == result)
+		{
+			sentence.LoadString(g_idValue - 1);
+			ostream << (LPCTSTR)sentence << endl;
+			correct++;
+		}
+		else
+		{
+			sentence.LoadString(g_idValue);
+			ostream << (LPCTSTR)sentence;
+			ostream << result << endl;
+			wrong++;
+		}
+		cout << endl;
+		//ostream << Resource[13] << ": " << answer << endl;
+		//ostream << Resource[14] << ": " << result << endl << endl;
+
+		ostream.close();
+	}
+	PrintFinalResult(argv[2], correct, wrong);
 	return 0;
 }

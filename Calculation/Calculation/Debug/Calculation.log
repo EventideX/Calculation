@@ -1,5 +1,3 @@
-﻿  scan.cpp
-c:\users\asus\desktop\c++\calculation\calculation\scan.cpp(13): warning C4101: “k”: 未引用的局部变量
-c:\users\asus\desktop\c++\calculation\calculation\scan.cpp(13): warning C4101: “j”: 未引用的局部变量
-  Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation\Debug\Calculation.exe
-  Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation\Debug\Calculation.pdb (Full PDB)
+﻿  main.cpp
+  Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation4\Calculation\Debug\Calculation.exe
+  Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation4\Calculation\Debug\Calculation.pdb (Full PDB)

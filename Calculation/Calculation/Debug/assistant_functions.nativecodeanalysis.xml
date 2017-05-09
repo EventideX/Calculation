@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>assistant_functions.cpp</FILENAME>
+      <LINE>61</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>MatchLanguage</FUNCTION>
+    <DECORATED>?MatchLanguage@@YA_NQAD@Z</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>assistant_functions.cpp</FILENAME>
+      <LINE>70</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>MatchLanguage</FUNCTION>
+    <DECORATED>?MatchLanguage@@YA_NQAD@Z</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>assistant_functions.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>PrintFinalResult</FUNCTION>
+    <DECORATED>?PrintFinalResult@@YAXHH@Z</DECORATED>
+    <FUNCLINE>82</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>assistant_functions.cpp</FILENAME>
+      <LINE>91</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>返回值被忽略: “ATL::CStringT&lt;wchar_t,ATL::StrTraitATL&lt;wchar_t,ATL::ChTraitsCRT&lt;wchar_t&gt; &gt; &gt;::LoadStringW”。</DESCRIPTION>
+    <FUNCTION>PrintFinalResult</FUNCTION>
+    <DECORATED>?PrintFinalResult@@YAXHH@Z</DECORATED>
+    <FUNCLINE>82</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

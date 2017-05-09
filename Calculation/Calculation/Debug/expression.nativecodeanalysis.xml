@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>expression.cpp</FILENAME>
+      <LINE>277</LINE>
+      <COLUMN>34</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>函数使用了堆栈的“64040”个字节: 超过了 /analyze:stacksize '16384'。 请考虑将某些数据移到堆中。</DESCRIPTION>
+    <FUNCTION>Expression::CalculateResult</FUNCTION>
+    <DECORATED>?CalculateResult@Expression@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ</DECORATED>
+    <FUNCLINE>277</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+      <FILENAME>expression.cpp</FILENAME>
+      <LINE>331</LINE>
+      <COLUMN>18</COLUMN>
+    </SFA>
+    <DEFECTCODE>6385</DEFECTCODE>
+    <DESCRIPTION>从“numberStack”中读取的数据无效: 可读大小为“64000”个字节，但可能读取了“-64”个字节。</DESCRIPTION>
+    <FUNCTION>Expression::CalculateResult</FUNCTION>
+    <DECORATED>?CalculateResult@Expression@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ</DECORATED>
+    <FUNCLINE>277</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>279</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>279</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>声明</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“point”等于 -1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>279</LINE>
+        <COLUMN>24</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>280</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>声明</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“numberStack”是一个 1000 元素数组(64000 字节)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>281</LINE>
+        <COLUMN>25</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>282</LINE>
+        <COLUMN>31</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>分支</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>跳过此循环(假定“&lt;分支条件&gt;”为 false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>331</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>声明</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>“numberStack”是“Fraction::IsInt”中的输出(在 c:\users\asus\desktop\c++\calculation4\calculation\calculation\fraction.h:22 处声明)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\asus\desktop\c++\calculation4\calculation\calculation\</FILEPATH>
+        <FILENAME>expression.cpp</FILENAME>
+        <LINE>331</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>使用情况</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>从“numberStack[-1]”中读取无效(可读范围是 0 到 999)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
