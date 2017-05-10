@@ -26,15 +26,15 @@ int main(int argc, char *argv[])
 	wcout.imbue(locale("CHS"));//设置区域
 	cout << "Which language you would like to choose?\n";
 	
-	int i = 1;//语言序号
+	int serialNumber = 1;//语言序号
 	g_idValue = 0;
 	CString languageList;//可选语言
 	languageList.LoadString(++g_idValue);//载入语言列表
 	while (languageList != "End")//输出可选语言列表
 	{
-		cout << i << '.';
+		cout << serialNumber << '.';
 		wcout << (LPCTSTR)languageList << endl;
-		i++;
+		serialNumber++;
 		languageList.LoadString(++g_idValue);
 	}
 	cout << "Please input the name of the language：";
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 	g_idValue += 2;
 	
 	int correct = 0, wrong = 0;//答案正确、错误个数
-	for (i = 1; i <= problemNumber; i++)
+	for (int i = 1; i <= problemNumber; i++)
 	{
 		Expression expression;//生成的表达式
 		string answer;//用户输入的答案
@@ -151,6 +151,7 @@ int main(int argc, char *argv[])
 		ostream << endl;
 		ostream.close();
 	}
+	cout << "********************************************************************" << endl;
 	PrintFinalResult(argv[2], correct, wrong);//输出最终结果到文件
 	return 0;
 }

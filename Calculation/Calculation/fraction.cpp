@@ -107,25 +107,21 @@ void Fraction::Simplify()
 /*将分数转换为字符串形式（不区分整数） 日期：2017/05/07*/
 string Fraction::TransferIntoStringNoInt()
 {
-	string str;
-	str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
-	return str;
+	return "(" + m_snumerator + "\\" + m_sdenominator + ")";
 }
 
 /*将分数转换为字符串形式（区分整数） 日期：2017/05/07
   更新：注释补充，格式调整 日期：2017/05/10*/
 string Fraction::TransferIntoString()
 {
-	string str;
 	if (m_ndenominator == 1)//如果分母为一
 	{
-		str = m_snumerator;
+		return m_snumerator;
 	}
 	else
 	{
-		str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
+		return "(" + m_snumerator + "\\" + m_sdenominator + ")";
 	}
-	return str;
 }
 
 /*重载加法运算符 日期：2017/05/07*/
