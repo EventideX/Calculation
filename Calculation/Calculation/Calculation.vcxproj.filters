@@ -38,45 +38,45 @@
     <ClInclude Include="expression.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource.h">
+    <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource1.h">
+    <ClInclude Include="resource1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource2.h">
+    <ClInclude Include="resource2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource3.h">
+    <ClInclude Include="resource3.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource4.h">
+    <ClInclude Include="resource4.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource5.h">
+    <ClInclude Include="resource5.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Calculation\Calculation\resource6.h">
+    <ClInclude Include="resource6.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\Deutsch.rc">
+    <ResourceCompile Include="Deutsch.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\English.rc">
+    <ResourceCompile Include="English.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\Francais.rc">
+    <ResourceCompile Include="Francais.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\日本語.rc">
+    <ResourceCompile Include="languageList.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\中文.rc">
+    <ResourceCompile Include="日本語.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-    <ResourceCompile Include="..\..\..\Calculation\Calculation\languageList.rc">
+    <ResourceCompile Include="中文.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>

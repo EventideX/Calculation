@@ -82,45 +82,47 @@ bool MatchLanguage(char language[])
 	}
 }
 
-int ReadFile(char *filename)//filenameÊÇ¾ø¶ÔÂ·¾¶
+int ReadFile(char *fileName)
 {
 	int problemNumber;
 	fstream istream;
-	istream.open(filename, ios::in);
+	istream.open(fileName, ios::in);
 	istream >> problemNumber;
 	istream.close();
 	return problemNumber;
 }
 
-void PrintFinalResult(char *filename, int correct, int wrong)
+void WriteFile(char *fileName, int idValue)
+{
+	wfstream wostream;
+	CString sentence;
+	sentence.LoadString(idValue);
+	wostream.imbue(locale("CHS"));
+	wostream.open(fileName, ios::app);
+	wostream << (LPCTSTR)sentence;
+	wostream.close();
+}
+
+void PrintFinalResult(char *fileName, int correct, int wrong)
 {
 	CString sentence;
 	fstream ostream;
 	wfstream wostream;
 
-	ostream.open(filename, ios::app);
+	ostream.open(fileName, ios::app);
 	ostream << "********************************************************************" << endl;
 	ostream << endl;
 	ostream.close();
 
-	wostream.imbue(locale("CHS"));
-	sentence.LoadString(++g_idValue);
+	WriteFile(fileName, ++g_idValue);
 
-	wostream.open(filename, ios::app);
-	wostream << (LPCTSTR)sentence;
-	wostream.close();
-
-	ostream.open(filename, ios::app);
+	ostream.open(fileName, ios::app);
 	ostream << correct << endl;
 	ostream.close();
 
-	sentence.LoadString(++g_idValue);
+	WriteFile(fileName, ++g_idValue);
 
-	wostream.open(filename, ios::app);
-	wostream << (LPCTSTR)sentence;
-	wostream.close();
-
-	ostream.open(filename, ios::app);
+	ostream.open(fileName, ios::app);
 	ostream << wrong << endl;
 	ostream.close();
 }

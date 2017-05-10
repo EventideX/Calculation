@@ -10,5 +10,6 @@ int Min(int x, int y);
 int GreatestCommonDivisor(int x, int y);
 int RandomNumber(int down, int up);
 bool MatchLanguage(char language[]);
-int ReadFile(char *filename);
-void PrintFinalResult(char *filename, int correct, int wrong);
+int ReadFile(char *fileName);
+void WriteFile(char *fileName, int idValue);
+void PrintFinalResult(char *fileName, int correct, int wrong);
