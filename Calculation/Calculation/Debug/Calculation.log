@@ -1,3 +1,10 @@
 ﻿  main.cpp
+  fraction.cpp
+  expression.cpp
+c:\users\asus\desktop\c++\calculation4\calculation\calculation\expression.cpp(360): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+c:\users\asus\desktop\c++\calculation4\calculation\calculation\expression.cpp(379): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  assistant_functions.cpp
+  正在生成代码...
+c:\users\asus\desktop\c++\calculation4\calculation\calculation\expression.cpp(68): warning C4715: “Expression::RandomOperation”: 不是所有的控件路径都返回值
   Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation4\Calculation\Debug\Calculation.exe
   Calculation.vcxproj -> C:\Users\ASUS\Desktop\C++\Calculation4\Calculation\Debug\Calculation.pdb (Full PDB)

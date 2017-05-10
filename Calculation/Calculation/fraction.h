@@ -18,7 +18,7 @@ private:
 public:
 	Fraction();
 	void GetFraction(int l, int h);
-	bool HaveZero();
+	bool isDivisorZero();
 	bool IsInt();
 	void TransferIntIntoFraction(int up, int down);
 

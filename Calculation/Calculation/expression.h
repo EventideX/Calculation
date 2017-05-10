@@ -15,7 +15,6 @@ const int kMax=1000;
 class Expression
 {
 private:
-	string m_expression;
 	vector<string> m_expressionUint;
 	string m_infix;
 	char m_postfix[kMax];

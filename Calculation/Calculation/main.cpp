@@ -2,6 +2,12 @@
 文件名：main.cpp
 作者：许郁杨 日期：2017/05/07
 描述: 主函数
+
+作者：许郁杨 日期：2017/05/09
+更新：命令行输入输出
+
+作者：许郁杨 日期：2017/05/10
+更新：在文件中输出题目数量和用户答案，并补充了注释，对一些格式细节进行了调整
 *************************************************************/
 #include"expression.h"
 #include"assistant_functions.h"
@@ -20,7 +26,7 @@ int main(int argc, char *argv[])
 	wcout.imbue(locale("CHS"));//设置区域
 	cout << "Which language you would like to choose?\n";
 	
-	int i = 1;
+	int i = 1;//语言序号
 	g_idValue = 0;
 	CString languageList;//可选语言
 	languageList.LoadString(++g_idValue);//载入语言列表
@@ -40,7 +46,7 @@ int main(int argc, char *argv[])
 		char Language[kMax];//用户所选语言
 		fgets(Language, kMax, stdin);
 		isSupportLanguage = MatchLanguage(Language);
-		if (!isSupportLanguage)
+		if (!isSupportLanguage)//用户输入语言不受支持
 		{
 			cout << "Sorry, please choose other language：";
 		}
@@ -112,7 +118,7 @@ int main(int argc, char *argv[])
 		ostream << "(" << i << ") " << equation << endl;
 		ostream.close();
 
-		if (answer == "e")
+		if (answer == "e")//如果需要中途退出程序
 		{
 			PrintFinalResult(argv[2], correct, wrong);
 			exit(0);
@@ -145,6 +151,6 @@ int main(int argc, char *argv[])
 		ostream << endl;
 		ostream.close();
 	}
-	PrintFinalResult(argv[2], correct, wrong);
+	PrintFinalResult(argv[2], correct, wrong);//输出最终结果到文件
 	return 0;
 }

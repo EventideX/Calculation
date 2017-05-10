@@ -3,6 +3,12 @@
 作者：许郁杨 日期：2017/05/07
 描述: 辅助功能函数
 主要功能包括：比较大小求最值、计算最大公约数
+
+作者：许郁杨 日期：2017/05/09
+更新：新增命令行读写函数：从命令行中读取文件目录进行读入、写入操作
+
+作者：许郁杨 日期：2017/05/10
+更新：新增WriteFile函数，执行将语言资源的语句写入文件的功能
 *************************************************************/
 #include<iostream>
 #include<cstring>
@@ -37,18 +43,19 @@ int GreatestCommonDivisor(int x, int y)
 	else return GreatestCommonDivisor(y, x%y);
 }
 
-int flag = 1;
+bool ifGenerateSeed = false;//标识是否已生成随机数种子
 /*生成[a,b]内的随机整数 日期：2017/05/07*/
 int RandomNumber(int down, int up)
 {
-	if (flag == 1)
+	if (!ifGenerateSeed)//如果未生成随机数种子
 	{
-		flag = 0;
-		srand((unsigned)time(NULL));//生成种子
+		ifGenerateSeed = true;
+		srand((unsigned)time(NULL));//生成随机数种子
 	}
 	return RANDOM(down, up);
 }
 
+/*对用户输入语言进行匹配，成功为true，失败为false 日期：2017/05/09*/
 bool MatchLanguage(char language[])
 {
 	stringstream sstmp;
@@ -56,15 +63,15 @@ bool MatchLanguage(char language[])
 	sstmp << language;
 	sstmp >> stmp;//转换为string
 	sstmp.clear();
-	CString languageName;
+	CString languageName;//用户输入语言
 	languageName = stmp.c_str();//转换为CString
-	CString languageList;
+	CString languageList;//可选语言
 	g_idValue = 0;
 	languageList.LoadString(++g_idValue);
 	int ntmp = 0;
 	while (languageList != "End")
 	{
-		if (languageList == languageName)
+		if (languageList == languageName)//语言匹配成功
 		{
 			ntmp = 1;
 			g_idValue *= 1000;//跳转至对应语言资源
@@ -72,7 +79,7 @@ bool MatchLanguage(char language[])
 		}
 		languageList.LoadString(++g_idValue);
 	}
-	if (ntmp == 0)
+	if (ntmp == 0)//语言匹配失败
 	{
 		return false;
 	}
@@ -82,9 +89,10 @@ bool MatchLanguage(char language[])
 	}
 }
 
+/*从文件中读入题目数量 日期：2017/05/09*/
 int ReadFile(char *fileName)
 {
-	int problemNumber;
+	int problemNumber;//题目个数
 	fstream istream;
 	istream.open(fileName, ios::in);
 	istream >> problemNumber;
@@ -92,10 +100,11 @@ int ReadFile(char *fileName)
 	return problemNumber;
 }
 
+/*写入语言资源内的语句 日期：2017/05/10*/
 void WriteFile(char *fileName, int idValue)
 {
 	wfstream wostream;
-	CString sentence;
+	CString sentence;//资源语句
 	sentence.LoadString(idValue);
 	wostream.imbue(locale("CHS"));
 	wostream.open(fileName, ios::app);
@@ -103,9 +112,10 @@ void WriteFile(char *fileName, int idValue)
 	wostream.close();
 }
 
+/*写入最终结果 日期：2017/05/09*/
 void PrintFinalResult(char *fileName, int correct, int wrong)
 {
-	CString sentence;
+	CString sentence;//资源语句
 	fstream ostream;
 	wfstream wostream;
 
@@ -117,12 +127,12 @@ void PrintFinalResult(char *fileName, int correct, int wrong)
 	WriteFile(fileName, ++g_idValue);
 
 	ostream.open(fileName, ios::app);
-	ostream << correct << endl;
+	ostream << correct << endl;//写入正确题目数
 	ostream.close();
 
 	WriteFile(fileName, ++g_idValue);
 
 	ostream.open(fileName, ios::app);
-	ostream << wrong << endl;
+	ostream << wrong << endl;//写入错误题目数
 	ostream.close();
 }

@@ -3,6 +3,9 @@
 作者：许郁杨 日期：2017/05/07
 描述: 分数类
 主要功能包括：分数的生成、转换和四则运算
+
+作者：许郁杨 日期：2017/05/10
+更新：补充了注释，对格式排版进行一些调整
 *************************************************************/
 
 #include"fraction.h"
@@ -30,18 +33,32 @@ void Fraction::GetFraction(int l, int h)
 	sstmp2 >> m_sdenominator;
 }
 
-/*检查除数是否为零 日期：2017/05/07*/
-bool Fraction::HaveZero()
+/*检查除数是否为零，是为true，否为false 日期：2017/05/07
+  更新：格式调整 日期：2017/05/10*/
+bool Fraction::isDivisorZero()
 {
-	if (m_nnumerator == 0) return true;
-	else return false;
+	if (m_nnumerator == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-/*检查是否可化简整数 日期：2017/05/07*/
+/*检查是否可化简整数，是为true，否为false 日期：2017/05/07
+  更新：注释补充，格式调整 日期：2017/05/10*/
 bool Fraction::IsInt()
 {
-	if (m_ndenominator == 1) return true;
-	else return false;
+	if (m_ndenominator == 1)//如果除数为一,即可化简为整数
+	{
+		return true;
+	}
+	else//如果不可化简为整数
+	{
+		return false;
+	}
 }
 
 /*将整数转换为分数形式 日期：2017/05/07*/
@@ -58,17 +75,21 @@ void Fraction::TransferIntIntoFraction(int up, int down)
 	sstmp2.clear();
 }
 
-/*化简分数 日期：2017/05/07*/
+/*化简分数 日期：2017/05/07
+  更新：注释补充，格式调整 日期：2017/05/10*/
 void Fraction::Simplify()
 {
 	int ntmp;
 	stringstream sstmp1, sstmp2;
-	if (m_ndenominator<0)
+	if (m_ndenominator < 0)//如果分母为负数
 	{
 		m_ndenominator = -m_ndenominator;
 		m_nnumerator = -m_nnumerator;
 	}
-	if (m_nnumerator == 0) m_ndenominator = 1;
+	if (m_nnumerator == 0)//如果分子为零
+	{
+		m_ndenominator = 1;
+	}
 	else
 	{
 		ntmp = GreatestCommonDivisor(abs(m_ndenominator), abs(m_nnumerator));
@@ -91,12 +112,19 @@ string Fraction::TransferIntoStringNoInt()
 	return str;
 }
 
-/*将分数转换为字符串形式（区分整数） 日期：2017/05/07*/
+/*将分数转换为字符串形式（区分整数） 日期：2017/05/07
+  更新：注释补充，格式调整 日期：2017/05/10*/
 string Fraction::TransferIntoString()
 {
 	string str;
-	if (m_ndenominator == 1) str = m_snumerator;
-	else str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
+	if (m_ndenominator == 1)//如果分母为一
+	{
+		str = m_snumerator;
+	}
+	else
+	{
+		str = "(" + m_snumerator + "\\" + m_sdenominator + ")";
+	}
 	return str;
 }
 
