@@ -12,6 +12,7 @@
 #define new DEBUG_NEW
 #endif
 Expression expression;
+bool ifGenerate = false;
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -55,6 +56,8 @@ CMFCApplication5Dlg::CMFCApplication5Dlg(CWnd* pParent /*=NULL*/)
 	, equation(_T(""))
 	, answer(_T(""))
 	, responce(_T(""))
+	, correct(0)
+	, wrong(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -65,6 +68,8 @@ void CMFCApplication5Dlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, equation);
 	DDX_Text(pDX, IDC_EDIT2, answer);
 	DDX_Text(pDX, IDC_EDIT3, responce);
+	DDX_Text(pDX, IDC_EDIT4, correct);
+	DDX_Text(pDX, IDC_EDIT5, wrong);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplication5Dlg, CDialogEx)
@@ -73,6 +78,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication5Dlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication5Dlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication5Dlg::OnBnClickedButton1)
+	ON_EN_CHANGE(IDC_EDIT4, &CMFCApplication5Dlg::OnEnChangeEdit4)
 END_MESSAGE_MAP()
 
 
@@ -169,6 +175,7 @@ void CMFCApplication5Dlg::OnBnClickedButton3()
 	UpdateData();
 	string tmp;
 	tmp = expression.GenerateInfixExpression(0, 10, 4, 'y', 'y', 'y');
+	ifGenerate = true;
 	equation = tmp.c_str();
 	UpdateData(FALSE);
 }
@@ -182,19 +189,36 @@ void CMFCApplication5Dlg::OnBnClickedButton2()
 void CMFCApplication5Dlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	UpdateData();
-	string result = expression.CalculateResult();
-	CString tmp1;
-	tmp1 = result.c_str();
-	if (answer == tmp1)
+	if (ifGenerate)
 	{
-		responce = "正确";
+		UpdateData();
+		string result = expression.CalculateResult();
+		CString tmp1;
+		tmp1 = result.c_str();
+		if (answer == tmp1)
+		{
+			responce = "正确";
+			correct++;
+		}
+		else
+		{
+			CString tmp2;
+			tmp2 = "错误，正确答案是";
+			responce = tmp2 + tmp1;
+			wrong++;
+		}
+		ifGenerate = false;
+		UpdateData(FALSE);
 	}
-	else
-	{
-		CString tmp2;
-		tmp2 = "错误，正确答案是";
-		responce = tmp2 + tmp1;
-	}
-	UpdateData(FALSE);
+}
+
+
+void CMFCApplication5Dlg::OnEnChangeEdit4()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
 }

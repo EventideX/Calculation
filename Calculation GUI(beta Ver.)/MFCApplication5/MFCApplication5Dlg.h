@@ -38,4 +38,7 @@ public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton1();
 	CString responce;
+	int correct;
+	int wrong;
+	afx_msg void OnEnChangeEdit4();
 };
